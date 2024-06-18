@@ -319,9 +319,9 @@ export function Playground() {
 
     function getamount(amount, type) {
         if (type === "Income") {
-            return `MWK${amount}`;
+            return `MWK ${amount}`;
         }
-        return `-MWK${amount}`;
+        return `-MWK ${amount}`;
     }
 
     function CreatePDFTables() {
@@ -353,7 +353,7 @@ export function Playground() {
             bodyStyles: { halign: 'center' },
         });
         // Add text for total balance
-        doc.text(`Total Balance: ${(balance > 0) ? `$${balance}` : `-$${Math.abs(balance)}`}`, 16, doc.autoTable.previous.finalY + 10);
+        doc.text(`Total Balance: ${(balance > 0) ? `MWK ${balance}` : `-MWK ${Math.abs(balance)}`}`, 16, doc.autoTable.previous.finalY + 10);
 
         doc.save("transactions.pdf");
     }
@@ -436,7 +436,7 @@ export function Playground() {
                                         <CardDescription>All income transactions for the current month.</CardDescription>
                                     </CardHeader>
                                     <CardContent>
-                                        <div className="text-4xl font-bold text-green-600">$ {income}</div>
+                                        <div className="text-4xl font-bold text-green-600">MWK {income}</div>
                                     </CardContent>
                                 </Card>
                                 <Card>
@@ -488,7 +488,7 @@ export function Playground() {
                                         <CardDescription>All expense transactions for the current month.</CardDescription>
                                     </CardHeader>
                                     <CardContent>
-                                        <div className="text-4xl font-bold text-red-600">$ {expenses}</div>
+                                        <div className="text-4xl font-bold text-red-600">MWK {expenses}</div>
                                     </CardContent>
                                 </Card>
                                 <Card>
@@ -541,7 +541,7 @@ export function Playground() {
                                     </CardHeader>
                                     <CardContent>
                                         <div className="text-4xl font-bold text-blue-600">
-                                            {(balance >= 0) ? `$ ${balance}` : `-$${Math.abs(balance)}`}
+                                            {(balance >= 0) ? `MWK ${balance}` : `-MWK${Math.abs(balance)}`}
                                         </div>
                                     </CardContent>
                                 </Card>
@@ -586,7 +586,7 @@ export function Playground() {
                                                                 {transaction.category}
                                                             </TableCell>
                                                             <TableCell key={index} className="text-center" >
-                                                                {(transaction.type === "Income") ? `$${transaction.amount}` : `-$${transaction.amount}`}
+                                                                {(transaction.type === "Income") ? `MWK ${transaction.amount}` : `-MWK ${transaction.amount}`}
                                                             </TableCell>
                                                             <TableCell key={index} className="text-center" >
                                                                 {transaction.notes}
@@ -599,7 +599,7 @@ export function Playground() {
                                                         <TableCell className="text-center">Total:</TableCell>
                                                         <TableCell colSpan={3}></TableCell>
                                                         <TableCell className="text-center">
-                                                            {(balance > 0) ? `$${balance}` : `-$${Math.abs(balance)}`}
+                                                            {(balance > 0) ? `MWK ${balance}` : `-MWK ${Math.abs(balance)}`}
                                                         </TableCell>
                                                     </TableRow>
                                                 </TableFooter>
